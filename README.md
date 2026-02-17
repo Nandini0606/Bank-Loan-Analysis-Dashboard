@@ -1,3 +1,11 @@
+<!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  BEFORE PUBLISHING: Replace the two placeholders:   ║
+  ║  YOUR_USERNAME  →  your GitHub username              ║
+  ║  YOUR_REPO      →  your repository name              ║
+  ╚══════════════════════════════════════════════════════╝
+-->
+
 <h1 align="center">🏦 Bank Loan Analysis Dashboard</h1>
 
 <p align="center">
@@ -8,8 +16,8 @@
 <p align="center">
   <img src="https://img.shields.io/badge/MySQL-Data%20Engineering-orange?style=for-the-badge&logo=mysql&logoColor=white"/>
   <img src="https://img.shields.io/badge/Microsoft%20Excel-Dashboard-217346?style=for-the-badge&logo=microsoftexcel&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Power%20BI-3%20Page%20Report-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
-  <img src="https://img.shields.io/badge/Tableau-Visual%20Analytics-1F4E79?style=for-the-badge&logo=tableau&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Power%20BI-Single%20Canvas-F2C811?style=for-the-badge&logo=powerbi&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Tableau-3%20Page%20Report-1F4E79?style=for-the-badge&logo=tableau&logoColor=white"/>
 </p>
 
 <p align="center">
@@ -48,8 +56,8 @@ This project follows a **complete end-to-end analytics pipeline**:
 ```
   finance1.csv ──┐
                   ├──► MySQL (Join + Clean + KPIs) ──► Excel Dashboard
-  finance2.csv ──┘                                ──► Power BI Report (3 pages)
-                                                  ──► Tableau Dashboard
+  finance2.csv ──┘                                ──► Power BI Dashboard (single canvas)
+                                                  ──► Tableau Report (3 pages)
 ```
 
 **Key questions answered:**
@@ -83,12 +91,12 @@ This project follows a **complete end-to-end analytics pipeline**:
   <tr>
     <td>📊 <b>Power BI</b></td>
     <td>Power BI Desktop</td>
-    <td>3-page interactive BI report (Summary · Details · Overview)</td>
+    <td>Single-canvas dashboard with 8 KPIs and multiple chart types</td>
   </tr>
   <tr>
     <td>📊 <b>Tableau</b></td>
     <td>Tableau Desktop / Public</td>
-    <td>Single-canvas visual analytics dashboard</td>
+    <td>3-page interactive report (Summary · Details · Overview)</td>
   </tr>
 </table>
 
@@ -128,10 +136,6 @@ Two source tables (`finance1` and `finance2`) were merged into a unified `financ
 </details>
 
 ---
-
-## 🗄 Data Pipeline & SQL
-
-**File:** [`Bank_Analytics.sql`]([./SQL/Bank_Analytics.sql](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Bank%20Analytics.sql))
 
 ### Step 1 — Database & Table Setup
 ```sql
@@ -249,9 +253,9 @@ GROUP BY loan_status;
 
 ## 📊 Excel Dashboard
 
-**File:** [`Bank_Analytics_Excel.xlsx`]
+![ ](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Excel%20Dashboard%20Screenshot.jpeg))
 
-![Excel Dashboard]([Screenshots/excel_dashboard.png](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Excel%20Dashboard%20Screenshot.jpeg))
+
 
 A **single-page interactive dashboard** with dynamic slicers for Year, Grade, Loan Status, and Verification Status.
 
@@ -269,17 +273,46 @@ A **single-page interactive dashboard** with dynamic slicers for Year, Grade, Lo
 
 ---
 
+## 📊 Power BI Dashboard
+
+<summary><b>📊 Summary Analysis Page</b></summary>
+
+![Overview Page](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/PowerBi%20Dashboard%20Screenshot.png)
+
+
+
+A **single-canvas dashboard** combining 8 KPI metrics and multiple visualizations with a Year filter on the left panel.
+
+**8 KPI Metrics in header banner:**
+
+| Total Payment | Total Customers | Total Loan Amount | Avg Loan Amount | Avg Interest Rate | Total Revol Balance | Total Funded Amount | Total Interest Earned |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 483M | 40K | 446M | 11K | 12% | 532M | 435M | 90M |
+
+**Visualizations:**
+
+| Visual | Type | Insight |
+|--------|------|---------|
+| Verified vs Not Verified | Donut chart | 59% unverified borrowers — a portfolio risk signal |
+| Grade & Subgrade Revolving Balance | Line/area chart | Peak at Grade B; sharp decline from Grade D onward |
+| Loan Status wise Home Ownership | Donut chart | RENT: 48% · MORTGAGE: 44% |
+| Top 10 Statewise Loan Status | Stacked bar | CA, NY, TX, FL, NJ are the top 5 states |
+| Year-wise Loan Amount | Line chart | Exponential growth: 2M (2007) → 261M (2011) |
+| Employee Length-wise Customers | Horizontal bar | 10+ years: 8.9K customers (largest segment) |
+
+**Filters:** `Year`
+
+---
+
 ## 📊 Tableau Dashboard
 
-**File:** [`Bank_Loan_Dashboard.twbx`]([[./PowerBI/Bank_Loan_Dashboard.pbix](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Bank_Analysis_Dashboard_By_NandiniPramanik.pbix](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Bank_Analysis_By_NandiniPramanik.twbx)))
-
-A **3-page interactive BI report** with cross-page navigation, consistent KPI headers, and drill-down filters.
+A **3-page interactive report** with cross-page navigation, consistent KPI cards, and drill-down filters.
 
 ---
 
 ### 📄 Page 1 — Summary
 
-![Bank Loan Summary Dashbord]([Screenshots/powerbi_summary.png](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Tableau%20Summary%20Dashboard%20Screenshot.png))
+![ ](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Tableau%20Summary%20Dashboard%20Screenshot.png))
 
 Focus: **Good Loan vs Bad Loan** segmentation
 
@@ -292,11 +325,13 @@ Focus: **Good Loan vs Bad Loan** segmentation
 
 Includes a **Loan Status breakdown table** with: Total Amount Received · Loan Amount · Applications · Revolving Balance · Funded Amount · Annual Income · DTI
 
+**Filters:** `Grade` · `Purpose` · `Verification Status`
+
 ---
 
 ### 📄 Page 2 — Details
 
-![Bank Loan Detail Dashboard]([Screenshots/powerbi_details.png](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Tableau%20Detail%20Dashboard%20Screenshot.png))
+![ ](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Tableau%20Overview%20Dashboard%20Screenshot.png))
 
 | Visual | Insight |
 |--------|---------|
@@ -307,11 +342,13 @@ Includes a **Loan Status breakdown table** with: Total Amount Received · Loan A
 | Verification Status Pie | 68.19% Verified |
 | Purpose-wise Loan Table | Debt Consolidation: 236.6M (largest category) |
 
+**Filters:** `Grade` · `Purpose` · `Year of Last Payment`
+
 ---
 
 ### 📄 Page 3 — Overview
 
-![Bank Loan Overview Dashboard]([Screenshots/powerbi_overview.png](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Tableau%20Overview%20Dashboard%20Screenshot.png))
+![ ](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Tableau%20Overview%20Dashboard%20Screenshot.png))
 
 | Visual | Description |
 |--------|-------------|
@@ -323,33 +360,6 @@ Includes a **Loan Status breakdown table** with: Total Amount Received · Loan A
 | Loan Amount by Home Ownership | Treemap: MORTGAGE > RENT > OWN |
 
 **Filters:** `Grade` · `Purpose` · `Verification Status` · `Year of Last Payment`
-
----
-
-## 📊 Power BI Dashboard
-
-**File:** [`Bank_Loan_Analysis.pbix`]([./Tableau/Bank_Loan_Analysis.twbx](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/Bank_Analysis_Dashboard_By_NandiniPramanik.pbix))
-
-![Tableau Dashboard]([Screenshots/tableau_dashboard.png](https://github.com/Nandini0606/Bank-Loan-Analysis-Dashboard/blob/main/PowerBi%20Dashboard%20Screenshot.png))
-
-A **single-canvas dashboard** combining 8 visualizations with a Year filter.
-
-**8 KPI Metrics in header banner:**
-
-| Total Payment | Total Customers | Total Loan Amount | Avg Loan Amount | Avg Interest Rate | Total Revol Balance | Total Funded Amount | Total Interest Earned |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 483M | 40K | 446M | 11K | 12% | 532M | 435M | 90M |
-
-**Visualizations:**
-
-| Visual | Insight |
-|--------|---------|
-| Verified vs Not Verified (Donut) | 59% unverified borrowers — a portfolio risk signal |
-| Grade & Subgrade Revolving Balance (Line) | Peak at Grade B; sharp decline from Grade D onward |
-| Loan Status wise Home Ownership (Donut) | RENT: 48% · MORTGAGE: 44% |
-| Top 10 Statewise Loan Status (Stacked Bar) | CA, NY, TX, FL, NJ are the top 5 states |
-| Year-wise Loan Amount (Line) | Exponential growth: 2M (2007) → 261M (2011) |
-| Employee Length-wise Customers (Bar) | 10+ years: 8.9K customers (largest segment) |
 
 ---
 
@@ -437,32 +447,24 @@ Grade B carries the <b>highest revolving balance (~40M)</b>, sitting just below 
 ## 📁 Project Structure
 
 ```
-📦 Bank-Loan-Analytics/
+📦 YOUR_REPO/
 │
 ├── 📄 README.md
 │
-├── 🗄️ SQL/
-│   └── Bank_Analytics.sql              ← DB setup, joins, date fix, all KPI queries
+├── 🗄️ Bank_Analytics.sql               ← DB setup, joins, date fix, all KPI queries
 │
-├── 📊 Excel/
-│   └── Bank_Analytics_Excel.xlsx       ← Single-page interactive Excel dashboard
+├── 📊 Bank_Analytics_Excel.xlsx         ← Single-page interactive Excel dashboard
 │
-├── 📊 PowerBI/
-│   └── Bank_Loan_Dashboard.pbix        ← 3-page Power BI report
+├── 📊 Bank_Loan_Dashboard.pbix          ← Single-canvas Power BI dashboard
 │
-├── 📊 Tableau/
-│   └── Bank_Loan_Analysis.twbx         ← Tableau workbook
+├── 📊 Bank_Loan_Analysis.twbx           ← 3-page Tableau report
 │
-├── 🖼️ Screenshots/
-│   ├── excel_dashboard.png             ← Excel dashboard preview
-│   ├── powerbi_summary.png             ← Power BI Summary page
-│   ├── powerbi_details.png             ← Power BI Details page
-│   ├── powerbi_overview.png            ← Power BI Overview page
-│   └── tableau_dashboard.png           ← Tableau dashboard preview
-│
-└── 📁 Data/
-    ├── finance1.csv                    ← Loan application data (source table 1)
-    └── finance2.csv                    ← Loan performance data (source table 2)
+└── 🖼️ Screenshots/
+    ├── excel_dashboard.png              ← Excel dashboard preview
+    ├── powerbi_dashboard.png            ← Power BI dashboard preview
+    ├── tableau_summary.png              ← Tableau Summary page
+    ├── tableau_details.png              ← Tableau Details page
+    └── tableau_overview.png             ← Tableau Overview page
 ```
 
 ---
@@ -472,7 +474,7 @@ Grade B carries the <b>highest revolving balance (~40M)</b>, sitting just below 
 ### 🗄️ SQL
 1. Open **MySQL Workbench** and create a new schema.
 2. Import `finance1.csv` and `finance2.csv` as tables.
-3. Run `Bank_Analytics.sql` — it creates the `finance_all` merged table and all KPI queries.
+3. Run `Bank_Analytics.sql` — it creates the `finance_all` merged table and executes all KPI queries.
 
 ### 📊 Excel
 1. Open `Bank_Analytics_Excel.xlsx` in **Excel 2016+**.
@@ -480,27 +482,28 @@ Grade B carries the <b>highest revolving balance (~40M)</b>, sitting just below 
 
 ### 📊 Power BI
 1. Open `Bank_Loan_Dashboard.pbix` in **Power BI Desktop**.
-2. Navigate using the **Summary → Details → Overview** buttons in the left panel.
-3. Use the filter panel to slice by Grade, Purpose, or Verification Status.
+2. Use the **Year filter** on the left panel to adjust data across all visuals.
+3. Hover over charts for detailed tooltips.
 
 ### 📊 Tableau
 1. Open `Bank_Loan_Analysis.twbx` in **Tableau Desktop** or **Tableau Public**.
-2. Use the **Year filter** on the left to adjust the time range across all charts.
+2. Navigate between **Summary → Details → Overview** pages using the tab navigation.
+3. Use the filter panel to slice by Grade, Purpose, or Verification Status.
 
 ---
 
 <h3 align="center">⭐ If this project helped you, please consider giving it a star! ⭐</h3>
 
 <p align="center">
-  <a href="https://linkedin.com/in/yourprofile">
+  <a href="https://linkedin.com/in/YOUR_LINKEDIN">
     <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
   </a>
   &nbsp;
-  <a href="https://github.com/yourusername">
+  <a href="https://github.com/YOUR_USERNAME">
     <img src="https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white"/>
   </a>
   &nbsp;
-  <a href="mailto:youremail@gmail.com">
+  <a href="mailto:YOUR_EMAIL@gmail.com">
     <img src="https://img.shields.io/badge/Gmail-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
 </p>

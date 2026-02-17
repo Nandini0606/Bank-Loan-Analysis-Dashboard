@@ -36,14 +36,13 @@
 | 1 | [Project Overview](#-project-overview) |
 | 2 | [Tools & Tech Stack](#-tools--tech-stack) |
 | 3 | [Dataset Description](#-dataset-description) |
-| 4 | [Data Pipeline & SQL](#-data-pipeline--sql) |
-| 5 | [Excel Dashboard](#-excel-dashboard) |
-| 6 | [Power BI Dashboard](#-power-bi-dashboard) |
-| 7 | [Tableau Dashboard](#-tableau-dashboard) |
-| 8 | [Key KPIs at a Glance](#-key-kpis-at-a-glance) |
-| 9 | [Business Insights](#-business-insights) |
-| 10 | [Project Structure](#-project-structure) |
-| 11 | [How to Run](#-how-to-run) |
+| 4 | [Excel Dashboard](#-excel-dashboard) |
+| 5 | [Power BI Dashboard](#-power-bi-dashboard) |
+| 6 | [Tableau Dashboard](#-tableau-dashboard) |
+| 7 | [Key KPIs at a Glance](#-key-kpis-at-a-glance) |
+| 8 | [Business Insights](#-business-insights) |
+| 9 | [Project Structure](#-project-structure) |
+| 10 | [How to Run](#-how-to-run) |
 
 ---
 
